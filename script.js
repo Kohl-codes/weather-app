@@ -1,6 +1,6 @@
 const apiKey = 'ed5192e00891464fa82112eb66b2f24d'; // Ensure this API key is correct and active
 
-// Function to get latitude and longitude of the city
+// Function to get latitude and longitude using Geocoding API
 function getCoordinates() {
     const city = document.getElementById('city').value;
     if (!city) {
@@ -8,18 +8,18 @@ function getCoordinates() {
         return;
     }
 
-    // Fetch coordinates from OpenWeatherMap
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+    // Geocoding API: Fetch latitude and longitude based on city, state, and country
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => {
             console.log("Geocoding API Response:", data); // Log the entire response for debugging
 
-            if (data.cod !== 200) {
-                document.getElementById('weather-result').innerHTML = `Error: ${data.message}`;
+            if (data.length === 0) {
+                document.getElementById('weather-result').innerHTML = "City not found!";
                 return;
             }
 
-            const { lat, lon } = data.coord;
+            const { lat, lon } = data[0]; // Extract latitude and longitude from the first result
             console.log(`Coordinates for ${city}: Latitude ${lat}, Longitude ${lon}`);
             getWeather(lat, lon); // Call the weather API with the coordinates
         })
@@ -29,9 +29,9 @@ function getCoordinates() {
         });
 }
 
-// Function to get weather using One Call API
+// Function to get weather using One Call API v2.5
 function getWeather(lat, lon) {
-    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${apiKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${apiKey}&units=metric`)
         .then(response => response.json())
         .then(data => {
             console.log("One Call API Response:", data); // Log the entire weather data response
@@ -42,6 +42,7 @@ function getWeather(lat, lon) {
                 return;
             }
 
+            // Display weather data
             const weatherData = `
                 <p><strong>Current Temperature:</strong> ${data.current.temp} °C</p>
                 <p><strong>Weather:</strong> ${data.current.weather[0].description}</p>
