@@ -10,10 +10,12 @@
     <div class="container">
         <h1>Weather App</h1>
         <div>
-            <input type="text" id="city" placeholder="Enter city name (optional: state, country)">
-            <button onclick="getCoordinates()">Get Weather</button>
+            <input type="text" id="location" placeholder="Enter city name">
+            <button onclick="getWeather()">Get Weather</button>
         </div>
-        <div id="weather-result"></div>
+        <div id="weather-result">
+            <img id="weather-icon" src="" alt="Weather Icon" style="display: none;">
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
