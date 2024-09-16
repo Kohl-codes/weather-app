@@ -1,21 +1,11 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #6d28d9, #a855f7);
+    height: 100vh;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    text-align: center;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
 }
 
 h1 {
@@ -24,44 +14,86 @@ h1 {
     margin-bottom: 20px;
 }
 
-input {
-    padding: 12px;
-    width: 100%;
-    max-width: 280px;
-    border: 2px solid #6d28d9;
-    border-radius: 8px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    font-size: 1em;
+/* Container for the weather data */
+.weather-display {
+    background-color: #87CEEB;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
 }
 
-button {
-    padding: 12px 20px;
-    background-color: #6d28d9;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s, transform 0.2s;
+/* Styling the weather header */
+.weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
 }
 
-button:hover {
-    background-color: #4f1f8c;
-    transform: scale(1.05);
+/* Weather icon styling */
+.weather-icon {
+    width: 60px;
+    height: 60px;
 }
 
-#weather-result {
+/* Temperature and condition */
+.temp {
+    font-size: 24px;
+    text-align: left;
+}
+
+.temp h2 {
+    font-size: 48px;
+    margin: 0;
+    color: #fff;
+}
+
+.temp p {
+    margin: 0;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Location info */
+.location-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Weather details (humidity, wind, etc.) */
+.weather-details {
+    display: flex;
+    justify-content: space-around;
     margin-top: 20px;
-    font-size: 1.1em;
-    color: #333;
-    border-top: 2px solid #6d28d9;
-    padding-top: 10px;
-    position: relative;
 }
 
-#weather-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
+.weather-details p {
+    font-size: 16px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .weather-header {
+        flex-direction: column;
+    }
+
+    .temp h2 {
+        font-size: 36px;
+    }
+
+    .weather-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .weather-details {
+        flex-direction: column;
+        text-align: left;
+    }
 }

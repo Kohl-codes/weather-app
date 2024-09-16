@@ -1,5 +1,5 @@
-//const apiKey = 'apiKey'; // Replace with your actual API key
-
+// Replace with your actual API key
+const apiKey = 'apiKey'; 
 
 // Function to get weather based on user input
 function getWeather() {
@@ -20,15 +20,28 @@ function getWeather() {
                 return;
             }
 
-            // Display weather data
-            const weatherIconUrl = data.current.condition.icon.replace(/\.png$/, '.svg'); // Replace .png with .svg if available
+            // Display weather data in a styled layout
+            const weatherIconUrl = data.current.condition.icon.replace(/\.png$/, '.svg'); // Use SVG if available
             const weatherData = `
-                <img id="weather-icon" src="${weatherIconUrl}" alt="${data.current.condition.text}">
-                <p><strong>Location:</strong> ${data.location.name}, ${data.location.region}, ${data.location.country}</p>
-                <p><strong>Current Temperature:</strong> ${data.current.temp_c} °C</p>
-                <p><strong>Weather:</strong> ${data.current.condition.text}</p>
-                <p><strong>Feels Like:</strong> ${data.current.feelslike_c} °C</p>
-                <p><strong>Humidity:</strong> ${data.current.humidity}%</p>
+                <div class="weather-header">
+                    <div class="weather-info">
+                        <img id="weather-icon" src="${weatherIconUrl}" alt="${data.current.condition.text}" class="weather-icon">
+                        <div class="temp">
+                            <h2>${data.current.temp_c}°C</h2>
+                            <p>${data.current.condition.text}</p>
+                        </div>
+                    </div>
+                    <div class="location-info">
+                        <p>${data.location.name}, ${data.location.region}, ${data.location.country}</p>
+                        <p>Feels like: ${data.current.feelslike_c}°C</p>
+                    </div>
+                </div>
+                <div class="weather-details">
+                    <p><strong>Humidity:</strong> ${data.current.humidity}%</p>
+                    <p><strong>Wind:</strong> ${data.current.wind_kph} kph</p>
+                    <p><strong>Sunrise:</strong> 5:50 AM</p>
+                    <p><strong>Sunset:</strong> 7:52 PM</p>
+                </div>
             `;
             document.getElementById('weather-result').innerHTML = weatherData;
         })
