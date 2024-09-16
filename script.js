@@ -1,5 +1,5 @@
 // Replace with your actual API key
-const apiKey = '029899bb298c49faba1133625241509'; 
+const apiKey = 'apiKey'; 
 
 // Function to get weather based on user input
 function getWeather() {
