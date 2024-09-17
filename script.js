@@ -1,6 +1,6 @@
 // Replace with your actual API key
-const apiKey = 'apiKey'; 
-
+//const apiKey = 'apiKey'; 
+const apiKey = '029899bb298c49faba1133625241509';
 // Function to get weather based on user input
 function getWeather() {
     const location = document.getElementById('location').value;

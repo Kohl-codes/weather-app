@@ -8,6 +8,16 @@ body {
     align-items: center;
 }
 
+.btn-primary {
+    background-color: #3bb5d0;
+    border-color: #3bb5d0;
+}
+
+.btn-primary:hover {
+    background-color: #35a5c0; /* Slightly darker for hover effect */
+    border-color: #35a5c0;
+}
+
 h1 {
     color: #ffffff;
     font-size: 2.5em;
