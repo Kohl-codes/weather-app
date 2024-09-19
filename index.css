@@ -8,15 +8,34 @@ body {
     align-items: center;
 }
 
+
+/* Custom Button Styling */
 .btn-primary {
-    background-color: #3bb5d0;
-    border-color: #3bb5d0;
+    background-color: #3bb5d0; /* Custom button color */
+    border-color: #3bb5d0; /* Border matches background */
+    color: #fff; /* Text color white */
+    padding: 10px 20px; /* Adjust padding for larger button */
+    font-size: 16px; /* Slightly larger text size */
+    border-radius: 25px; /* Rounded corners */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
 }
 
+/* Hover Effect */
 .btn-primary:hover {
-    background-color: #35a5c0; /* Slightly darker for hover effect */
+    background-color: #35a5c0; /* Darker blue for hover effect */
     border-color: #35a5c0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
+
+/* Active/Focus State */
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: #2c9fb3; /* Even darker shade when clicked */
+    border-color: #2c9fb3;
+    outline: none; /* Remove default outline */
+    box-shadow: none; /* Remove shadow on active click */
+}
+
 
 h1 {
     color: #ffffff;
